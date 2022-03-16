@@ -12,8 +12,8 @@ $data_key = md5($text);
 $sql = "SELECT id, data_key, result FROM cache_table WHERE data_key = '".$data_key."'";
 $result = $conn->query($sql);
 
+//If data already exists
 if ($result->num_rows > 0) {
-    // output data of each row
     while($row = $result->fetch_assoc()) {
         echo $row["result"];
         return;
@@ -25,7 +25,6 @@ if ($result->num_rows > 0) {
 
     $ch = curl_init(); 
 
-    // set url 
     curl_setopt($ch, CURLOPT_URL, $request_url);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     curl_setopt($ch, CURLOPT_TIMEOUT, 3);
