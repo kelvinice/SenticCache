@@ -37,7 +37,7 @@ if ($result->num_rows > 0) {
     $sql = "INSERT INTO cache_table(data_key, result) VALUES('".$data_key."', '".$output."')";
     $conn->query($sql);
 
-    // echo($output);
+    echo($output);
     return $output;
 }
 
